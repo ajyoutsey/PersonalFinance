@@ -21,9 +21,10 @@ public class Account {
     public static void addEvent(Event e) {
         eventList.add(e);
     }
-    public static void removeEvent(double a, String e) {
+    public static void removeEvent(double a, String e, int d) {
         for (int i = 0; i < eventList.size(); i++) {
-            if (eventList.get(i).getAmount() == a && eventList.get(i).getEventType().equals(e)) {
+            if (eventList.get(i).getAmount() == a && eventList.get(i).getEventType().equals(e)
+                && eventList.get(i).getDate() == d) {
                 eventList.remove(i);
                 return;
             }
