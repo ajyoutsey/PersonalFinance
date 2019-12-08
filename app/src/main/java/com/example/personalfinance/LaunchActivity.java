@@ -29,7 +29,7 @@ public class LaunchActivity extends AppCompatActivity {
         LinearLayout accList = findViewById(R.id.accountList);
         for (Account a : accountList) {
             View accountChunk = getLayoutInflater().inflate(R.layout.chunk_new_account, null, false);
-            TextView accName = accountChunk.findViewById(R.id.accName);
+            TextView accName = accountChunk.findViewById(R.id.accountName);
             TextView accTotal = accountChunk.findViewById(R.id.accTotal);
             accName.setText(a.getAccountName());
             String total = Double.toString(a.getAccountTotal());

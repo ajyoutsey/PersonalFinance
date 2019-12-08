@@ -18,7 +18,7 @@
     <LinearLayout
         android:id="@+id/eventList"
         android:layout_width="match_parent"
-        android:layout_height="520dp"
+        android:layout_height="475dp"
         android:orientation="vertical">
 
     </LinearLayout>
@@ -28,6 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Event" />
+
+    <Button
+        android:id="@+id/returnHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Return to home" />
 
     <Button
         android:id="@+id/deleteAccount"

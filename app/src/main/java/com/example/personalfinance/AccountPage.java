@@ -25,8 +25,10 @@ public class AccountPage extends AppCompatActivity {
         pageBalance.setText(balance);
         Button createEvent = findViewById(R.id.createEvent);
         Button deleteAccount = findViewById(R.id.deleteAccount);
+        Button returnHome = findViewById(R.id.returnHome);
         createEvent.setOnClickListener(unchecked -> createEvent());
         deleteAccount.setOnClickListener(unchecked -> deleteAccount());
+        returnHome.setOnClickListener(unchecked -> goHome());
         Account acc = LaunchActivity.getAccountList().get(accountIndex);
         ArrayList<Event> temp = acc.getEventList();
         for (Event e : temp) {
@@ -55,5 +57,11 @@ public class AccountPage extends AppCompatActivity {
         ArrayList<Account> temp = LaunchActivity.getAccountList();
         temp.remove(LaunchActivity.getCurrentAccount());
         LaunchActivity.setAccountList(temp);
+    }
+
+    public void goHome() {
+        Intent intent = new Intent(this, LaunchActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
