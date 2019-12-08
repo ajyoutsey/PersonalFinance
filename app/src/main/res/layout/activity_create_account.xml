@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/accountNameTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Account Name" />
+
+    <EditText
+        android:id="@+id/accountName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:editable="true"
+        android:text="Your Account Name Here" />
+
+    <TextView
+        android:id="@+id/balanceTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Balance" />
+
+    <EditText
+        android:id="@+id/accountBalance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:editable="true"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Your Balance Here" />
+
+    <Button
+        android:id="@+id/addAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Account" />
+
+    <Button
+        android:id="@+id/cancelAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel" />
+</LinearLayout>
