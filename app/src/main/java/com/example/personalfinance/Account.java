@@ -13,8 +13,8 @@ public class Account {
         accountTotal = aTotal;
         eventList = new ArrayList<Event>();
     }
-    public static void addEvent(double a, String e) {
-        Event temp = new Event(a, e, 1);
+    public static void addEvent(double a, String e, int date) {
+        Event temp = new Event(a, e, date);
         eventList.add(temp);
         accountTotal = accountTotal + a;
     }
