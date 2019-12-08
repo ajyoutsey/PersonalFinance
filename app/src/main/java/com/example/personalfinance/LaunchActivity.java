@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,8 @@ public class LaunchActivity extends AppCompatActivity {
 
     private double balance;
 
+    private static int currentAccount;
+
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
@@ -23,6 +26,7 @@ public class LaunchActivity extends AppCompatActivity {
         createAccount.setVisibility(View.VISIBLE);
         createAccount.setOnClickListener(unchecked -> createAccount());
         accountList = new ArrayList<Account>();
+        LinearLayout accList = findViewById(R.id.accountList);
         for (Account a : accountList) {
             View accountChunk = getLayoutInflater().inflate(R.layout.chunk_new_account, null, false);
             TextView accName = accountChunk.findViewById(R.id.accName);
@@ -31,6 +35,9 @@ public class LaunchActivity extends AppCompatActivity {
             String total = Double.toString(a.getAccountTotal());
             balance += a.getAccountTotal();
             accTotal.setText(total);
+            accList.addView(accountChunk);
+            Button enter = accountChunk.findViewById(R.id.enterAccount);
+            enter.setOnClickListener(unchecked -> setIndex(a.getAccountName(), a.getAccountTotal()));
         }
         TextView totalBalance = findViewById(R.id.totalBalance);
         String bal = Double.toString(balance);
@@ -45,5 +52,21 @@ public class LaunchActivity extends AppCompatActivity {
 
     public static void addAccount(Account a) {
         accountList.add(a);
+    }
+
+    public void setIndex(String name, double balance) {
+        for (int i = 0; i < accountList.size(); i++) {
+            if (accountList.get(i).getAccountName().equals(name)
+                    && accountList.get(i).getAccountTotal() == balance) {
+                currentAccount = i;
+            }
+        }
+        enterAccount();
+    }
+
+    public void enterAccount() {
+        Intent intent = new Intent(this, AccountPage.class);
+        startActivity(intent);
+        finish();
     }
 }

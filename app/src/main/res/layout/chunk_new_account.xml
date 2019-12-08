@@ -16,4 +16,10 @@
         android:ems="10"
         android:inputType="numberDecimal" />
 
+    <Button
+        android:id="@+id/enterAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter" />
+
 </LinearLayout>
