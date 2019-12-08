@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,7 +26,10 @@ public class LaunchActivity extends AppCompatActivity {
         accountList = new ArrayList<Account>();
         for (Account a : accountList) {
             View accountChunk = getLayoutInflater().inflate(R.layout.chunk_new_account, null, false);
-
+            TextView accName = accountChunk.findViewById(R.id.accName);
+            TextView accTotal = accountChunk.findViewById(R.id.accTotal);
+            accName.setText(a.getAccountName());
+            accTotal.setText(a.getAccountTotal());
         }
     }
 

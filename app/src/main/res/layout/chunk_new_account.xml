@@ -5,13 +5,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/accountType"
+        android:id="@+id/accName"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Account Type" />
+        android:layout_height="50dp" />
 
     <EditText
-        android:id="@+id/accountTotal"
+        android:id="@+id/accTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
