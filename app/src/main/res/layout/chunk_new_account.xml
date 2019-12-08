@@ -5,28 +5,15 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/accountType"
+        android:id="@+id/accName"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Account Type" />
+        android:layout_height="50dp" />
 
     <EditText
-        android:id="@+id/accountTotal"
+        android:id="@+id/accTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal" />
 
-    <Button
-        android:id="@+id/enterInfo"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:text="Enter" />
-
-    <Button
-        android:id="@+id/cancelInfo"
-        android:layout_width="143dp"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:text="@android:string/cancel" />
 </LinearLayout>
