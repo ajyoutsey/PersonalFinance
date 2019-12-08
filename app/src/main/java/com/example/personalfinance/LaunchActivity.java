@@ -23,6 +23,10 @@ public class LaunchActivity extends AppCompatActivity {
         createAccount.setVisibility(View.VISIBLE);
         createAccount.setOnClickListener(unchecked -> createAccount());
         accountList = new ArrayList<Account>();
+        for (Account a : accountList) {
+            View accountChunk = getLayoutInflater().inflate(R.layout.chunk_new_account, null, false);
+
+        }
     }
 
     public void createAccount() {
