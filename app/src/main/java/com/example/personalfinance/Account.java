@@ -16,6 +16,9 @@ public class Account {
         eventList.add(temp);
         accountTotal = accountTotal + a;
     }
+    public void addEvent(Event e) {
+        eventList.add(e);
+    }
     public void removeEvent(double a, String e) {
         for (int i = 0; i < eventList.size(); i++) {
             if (eventList.get(i).getAmount() == a && eventList.get(i).getEventType().equals(e)) {
