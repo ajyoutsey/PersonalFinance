@@ -16,16 +16,4 @@
         android:ems="10"
         android:inputType="numberDecimal" />
 
-    <Button
-        android:id="@+id/enterInfo"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:text="Enter" />
-
-    <Button
-        android:id="@+id/cancelInfo"
-        android:layout_width="143dp"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:text="@android:string/cancel" />
 </LinearLayout>
