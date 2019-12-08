@@ -39,4 +39,7 @@ public class Account {
     public double getAccountTotal() {
         return accountTotal;
     }
+    public static ArrayList<Event> getEventList() {
+        return eventList;
+    }
 }
