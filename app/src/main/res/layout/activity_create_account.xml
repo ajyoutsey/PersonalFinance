@@ -26,8 +26,7 @@
         android:layout_height="wrap_content"
         android:editable="true"
         android:ems="10"
-        android:inputType="number"
-        android:text="Your Balance Here" />
+        android:inputType="number" />
 
     <Button
         android:id="@+id/addAccount"

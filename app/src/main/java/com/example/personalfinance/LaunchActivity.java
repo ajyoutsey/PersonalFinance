@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class LaunchActivity extends AppCompatActivity {
 
-    private static ArrayList<Account> accountList;
+    private static ArrayList<Account> accountList = new ArrayList<Account>();
 
     private double balance;
 
@@ -25,7 +25,6 @@ public class LaunchActivity extends AppCompatActivity {
         Button createAccount = findViewById(R.id.createAccount);
         createAccount.setVisibility(View.VISIBLE);
         createAccount.setOnClickListener(unchecked -> createAccount());
-        accountList = new ArrayList<Account>();
         LinearLayout accList = findViewById(R.id.accountList);
         for (Account a : accountList) {
             View accountChunk = getLayoutInflater().inflate(R.layout.chunk_new_account, null, false);

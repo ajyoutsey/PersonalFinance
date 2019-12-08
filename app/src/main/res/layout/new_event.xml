@@ -8,28 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:editable="false"
-        android:text="Event Name" />
+        android:text="Event Description" />
 
     <EditText
         android:id="@+id/eventName2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:editable="true"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/eventValueName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:editable="false"
-        android:text="Event Value" />
-
-    <EditText
-        android:id="@+id/eventCost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal" />
+        android:editable="true" />
 
     <TextView
         android:id="@+id/dateName"
@@ -43,6 +28,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:editable="true" />
+
+    <TextView
+        android:id="@+id/eventValueName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:editable="false"
+        android:text="Amount" />
+
+    <EditText
+        android:id="@+id/eventCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
     <Button
         android:id="@+id/addEvent"
