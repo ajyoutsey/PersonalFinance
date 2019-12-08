@@ -22,7 +22,7 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     public void addAccount() {
-        EditText accountName = findViewById(R.id.accountName);
+        EditText accountName = findViewById(R.id.createAccountName);
         EditText accountBalance = findViewById(R.id.accountBalance);
         String name = accountName.getText().toString();
         String bal = accountBalance.getText().toString();
