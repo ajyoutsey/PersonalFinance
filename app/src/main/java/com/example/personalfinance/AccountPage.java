@@ -2,6 +2,7 @@ package com.example.personalfinance;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -26,7 +27,22 @@ public class AccountPage extends AppCompatActivity {
         Button deleteAccount = findViewById(R.id.deleteAccount);
         createEvent.setOnClickListener(unchecked -> createEvent());
         deleteAccount.setOnClickListener(unchecked -> deleteAccount());
-        for ()
+        Account acc = LaunchActivity.getAccountList().get(accountIndex);
+        ArrayList<Event> temp = acc.getEventList();
+        for (Event e : temp) {
+            View eventChunk = getLayoutInflater().inflate(R.layout.chunk_new_event, null, false);
+            TextView date = eventChunk.findViewById(R.id.date);
+            TextView description = eventChunk.findViewById(R.id.eventName);
+            TextView amount = eventChunk.findViewById(R.id.eventAmount);
+            int eventDate = e.getDate();
+            String eventName = e.getEventType();
+            double eventAmount = e.getAmount();
+            String dateString = " " + eventDate;
+            String amountString = " " + eventAmount;
+            date.setText(dateString);
+            description.setText(eventName);
+            amount.setText(amountString);
+        }
     }
 
     public void createEvent() {
