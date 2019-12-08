@@ -39,11 +39,10 @@
         android:text="Date of Event" />
 
     <EditText
-        android:id="@+id/textView5"
+        android:id="@+id/eventDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:editable="true"
-        android:text="TextView" />
+        android:editable="true" />
 
     <Button
         android:id="@+id/addEvent"

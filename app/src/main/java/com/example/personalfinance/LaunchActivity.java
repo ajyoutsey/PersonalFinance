@@ -38,4 +38,11 @@ public class LaunchActivity extends AppCompatActivity {
     public static void addAccount(Account a) {
         accountList.add(a);
     }
+
+    public static void setAccountList(ArrayList<Account> a) {
+        accountList = a;
+    }
+    public static ArrayList<Account> getAccountList() {
+        return accountList;
+    }
 }
