@@ -8,18 +8,31 @@
         android:layout_width="match_parent"
         android:layout_height="58dp" />
 
+    <EditText
+        android:id="@+id/pageBalance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
     <LinearLayout
         android:id="@+id/eventList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="520dp"
         android:orientation="vertical">
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/createEvent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Add Event" />
+
+    <Button
+        android:id="@+id/deleteAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Account" />
 
 </LinearLayout>
