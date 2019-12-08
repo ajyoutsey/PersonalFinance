@@ -12,7 +12,7 @@ public class Account {
         accountTotal = aTotal;
     }
     public void addEvent(double a, String e) {
-        Event temp = new Event(a, e);
+        Event temp = new Event(a, e, 1);
         eventList.add(temp);
         accountTotal = accountTotal + a;
     }
