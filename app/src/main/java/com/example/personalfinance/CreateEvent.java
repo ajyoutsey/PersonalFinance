@@ -27,11 +27,11 @@ public class CreateEvent extends AppCompatActivity {
         String eName = eventName.getText().toString();
         double eValue = Double.parseDouble(eventValue.getText().toString());
         int eDate = Integer.parseInt(eventDate.getText().toString());
-        //Account temp = LaunchActivity.getAccountList().get();
-        //temp.addEvent(eValue, eName, eDate);
+        Account temp = LaunchActivity.getAccountList().get(LaunchActivity.getCurrentAccount());
+        temp.addEvent(eValue, eName, eDate);
         Intent intent = new Intent(this, AccountPage.class);
         startActivity(intent);
-        finish()
+        finish();
     }
     public void cancelEvent() {
         Intent intent = new Intent(this, AccountPage.class);
