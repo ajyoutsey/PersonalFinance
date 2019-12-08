@@ -69,4 +69,14 @@ public class LaunchActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public static void setAccountList(ArrayList<Account> a) {
+        accountList = a;
+    }
+    public static ArrayList<Account> getAccountList() {
+        return accountList;
+    }
+    public static int getCurrentAccount() {
+        return currentAccount;
+    }
 }
