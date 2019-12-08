@@ -3,9 +3,41 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Personal Finances" />
+
+    <TextView
+        android:id="@+id/totalBalanceTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Balance" />
+
+    <EditText
+        android:id="@+id/totalBalance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="number"
+        android:text="0" />
+
     <LinearLayout
         android:id="@+id/accountList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/createAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:text="Create New Account" />
+
 </LinearLayout>
