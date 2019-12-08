@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:editable="false"
-        android:text="Date of Event" />
+        android:text="Date of Event (Month/Date/Year)" />
 
     <EditText
         android:id="@+id/eventDate"
@@ -42,6 +42,12 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal" />
+
+    <Switch
+        android:id="@+id/eventSign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Positive" />
 
     <Button
         android:id="@+id/addEvent"
