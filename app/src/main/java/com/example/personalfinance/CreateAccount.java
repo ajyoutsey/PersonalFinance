@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,9 +24,13 @@ public class CreateAccount extends AppCompatActivity {
     public void addAccount() {
         EditText accountName = findViewById(R.id.createAccountName);
         EditText accountBalance = findViewById(R.id.accountBalance);
+        Switch accountSign = findViewById(R.id.accountSign);
         String name = accountName.getText().toString();
         String bal = accountBalance.getText().toString();
         double balance = Double.parseDouble(bal);
+        if (accountSign.isChecked()) {
+            balance = -balance;
+        }
         Account newAccount = new Account(name, balance);
         MainActivity.addAccount(newAccount);
         Intent intent = new Intent(this, MainActivity.class);
