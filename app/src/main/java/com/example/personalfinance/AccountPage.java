@@ -38,10 +38,10 @@ public class AccountPage extends AppCompatActivity {
             TextView date = eventChunk.findViewById(R.id.date);
             TextView description = eventChunk.findViewById(R.id.eventName);
             TextView amount = eventChunk.findViewById(R.id.eventAmount);
-            int eventDate = e.getDate();
+            String eventDate = e.getDate();
             String eventName = e.getEventType();
             double eventAmount = e.getAmount();
-            String dateString = " " + eventDate;
+            String dateString = eventDate;
             String amountString = " " + eventAmount;
             date.setText(dateString);
             description.setText(eventName);

@@ -13,18 +13,19 @@ public class Account {
         accountTotal = aTotal;
         eventList = new ArrayList<Event>();
     }
-    public void addEvent(double a, String e, int date) {
+    public void addEvent(double a, String e, String date) {
         Event temp = new Event(a, e, date);
         eventList.add(temp);
         accountTotal = accountTotal + a;
     }
     public void addEvent(Event e) {
         eventList.add(e);
+        accountTotal = accountTotal + e.getAmount();
     }
-    public void removeEvent(double a, String e, int d) {
+    public void removeEvent(double a, String e, String d) {
         for (int i = 0; i < eventList.size(); i++) {
             if (eventList.get(i).getAmount() == a && eventList.get(i).getEventType().equals(e)
-                && eventList.get(i).getDate() == d) {
+                && eventList.get(i).getDate().equals(d)) {
                 eventList.remove(i);
                 return;
             }

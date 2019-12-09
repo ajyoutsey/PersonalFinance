@@ -3,9 +3,9 @@ package com.example.personalfinance;
 public class Event {
     private double amount;
     private String eventType;
-    private int date;
+    private String date;
 
-    public Event(double a, String e, int d) {
+    public Event(double a, String e, String d) {
         amount = a;
         eventType = e;
         date = d;
@@ -17,7 +17,7 @@ public class Event {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-    public void setDate(int d) {
+    public void setDate(String d) {
         this.date = d;
     }
 
@@ -27,7 +27,7 @@ public class Event {
     public double getAmount() {
         return amount;
     }
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 }

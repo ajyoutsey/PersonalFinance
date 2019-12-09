@@ -28,18 +28,12 @@ public class CreateEvent extends AppCompatActivity {
         Switch eventSign = findViewById(R.id.eventSign);
         String eName = eventName.getText().toString();
         double eValue = Double.parseDouble(eventValue.getText().toString());
+        if (eventSign.getTextOn().toString().equals("Negative")) {
+            eValue = -eValue;
+        }
         String tempEDate = eventDate.getText().toString();
-        String[] forInt = tempEDate.split("/");
-        String toConvert = "";
-        if (!eventSign.getTextOn().toString().equals("Positive")) {
-            toConvert += "-";
-        }
-        for (int i = 0; i < forInt.length; i++) {
-            toConvert += forInt[i];
-        }
-        int eDate = Integer.parseInt(toConvert);
         Account temp = MainActivity.getAccountList().get(MainActivity.getCurrentAccount());
-        Event tempE = new Event(eValue, eName, eDate);
+        Event tempE = new Event(eValue, eName, tempEDate);
         temp.addEvent(tempE);
         Intent intent = new Intent(this, AccountPage.class);
         startActivity(intent);
