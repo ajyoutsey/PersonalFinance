@@ -27,9 +27,11 @@ public class CreateEvent extends AppCompatActivity {
         EditText eventDate = findViewById(R.id.eventDate);
         Switch eventSign = findViewById(R.id.eventSign);
         String eName = eventName.getText().toString();
-        double eValue = Double.parseDouble(eventValue.getText().toString());
-        if (eventSign.getTextOn().toString().equals("Negative")) {
-            eValue = -eValue;
+        double eValue;
+        if (eventSign.isChecked()) {
+            eValue = Double.parseDouble("-" + eventValue.getText().toString());
+        } else {
+            eValue = Double.parseDouble(eventValue.getText().toString());
         }
         String tempEDate = eventDate.getText().toString();
         Account temp = MainActivity.getAccountList().get(MainActivity.getCurrentAccount());
