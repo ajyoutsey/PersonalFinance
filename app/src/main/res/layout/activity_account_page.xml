@@ -6,22 +6,27 @@
     <TextView
         android:id="@+id/pageName"
         android:layout_width="match_parent"
-        android:layout_height="58dp" />
+        android:layout_height="34dp" />
 
     <TextView
         android:id="@+id/pageBalance"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:ems="10"
         android:inputType="number" />
 
-    <LinearLayout
-        android:id="@+id/eventList"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="438dp"
-        android:orientation="vertical">
+        android:layout_height="339dp">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/eventList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/createEvent"
