@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,14 +27,14 @@ public class CreateAccount extends AppCompatActivity {
         String bal = accountBalance.getText().toString();
         double balance = Double.parseDouble(bal);
         Account newAccount = new Account(name, balance);
-        LaunchActivity.addAccount(newAccount);
-        Intent intent = new Intent(this, LaunchActivity.class);
+        MainActivity.addAccount(newAccount);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
     public void cancelAccount() {
-        Intent intent = new Intent(this, LaunchActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }

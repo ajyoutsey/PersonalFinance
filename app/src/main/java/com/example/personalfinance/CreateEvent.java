@@ -38,7 +38,7 @@ public class CreateEvent extends AppCompatActivity {
             toConvert += forInt[i];
         }
         int eDate = Integer.parseInt(toConvert);
-        Account temp = LaunchActivity.getAccountList().get(LaunchActivity.getCurrentAccount());
+        Account temp = MainActivity.getAccountList().get(MainActivity.getCurrentAccount());
         Event tempE = new Event(eValue, eName, eDate);
         temp.addEvent(tempE);
         Intent intent = new Intent(this, AccountPage.class);

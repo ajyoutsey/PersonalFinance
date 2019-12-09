@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,11 +16,11 @@ public class AccountPage extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_page);
-        int accountIndex = LaunchActivity.getCurrentAccount();
+        int accountIndex = MainActivity.getCurrentAccount();
         TextView pageName = findViewById(R.id.pageName);
         TextView pageBalance = findViewById(R.id.pageBalance);
-        String name = LaunchActivity.getAccountList().get(accountIndex).getAccountName();
-        double bal = LaunchActivity.getAccountList().get(accountIndex).getAccountTotal();
+        String name = MainActivity.getAccountList().get(accountIndex).getAccountName();
+        double bal = MainActivity.getAccountList().get(accountIndex).getAccountTotal();
         pageName.setText(name);
         String balance = " " + bal;
         pageBalance.setText(balance);
@@ -29,8 +30,9 @@ public class AccountPage extends AppCompatActivity {
         createEvent.setOnClickListener(unchecked -> createEvent());
         deleteAccount.setOnClickListener(unchecked -> deleteAccount());
         returnHome.setOnClickListener(unchecked -> goHome());
-        Account acc = LaunchActivity.getAccountList().get(accountIndex);
+        Account acc = MainActivity.getAccountList().get(accountIndex);
         ArrayList<Event> temp = acc.getEventList();
+        LinearLayout eventPane = findViewById(R.id.eventList);
         for (Event e : temp) {
             View eventChunk = getLayoutInflater().inflate(R.layout.chunk_new_event, null, false);
             TextView date = eventChunk.findViewById(R.id.date);
@@ -44,6 +46,7 @@ public class AccountPage extends AppCompatActivity {
             date.setText(dateString);
             description.setText(eventName);
             amount.setText(amountString);
+            eventPane.addView(eventChunk);
         }
     }
 
@@ -54,13 +57,16 @@ public class AccountPage extends AppCompatActivity {
     }
 
     public void deleteAccount() {
-        ArrayList<Account> temp = LaunchActivity.getAccountList();
-        temp.remove(LaunchActivity.getCurrentAccount());
-        LaunchActivity.setAccountList(temp);
+        ArrayList<Account> temp = MainActivity.getAccountList();
+        temp.remove(MainActivity.getCurrentAccount());
+        MainActivity.setAccountList(temp);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void goHome() {
-        Intent intent = new Intent(this, LaunchActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }

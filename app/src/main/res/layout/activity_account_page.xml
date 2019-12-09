@@ -18,7 +18,7 @@
     <LinearLayout
         android:id="@+id/eventList"
         android:layout_width="match_parent"
-        android:layout_height="389dp"
+        android:layout_height="438dp"
         android:orientation="vertical">
 
     </LinearLayout>

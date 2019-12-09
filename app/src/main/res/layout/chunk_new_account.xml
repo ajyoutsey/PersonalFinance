@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="TextView" />
 
-    <EditText
+    <TextView
         android:id="@+id/accTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,6 +21,6 @@
         android:id="@+id/enterAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter" />
+        android:text="Enter Account" />
 
 </LinearLayout>

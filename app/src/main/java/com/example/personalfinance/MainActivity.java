@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class LaunchActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static ArrayList<Account> accountList = new ArrayList<Account>();
 
@@ -21,7 +21,7 @@ public class LaunchActivity extends AppCompatActivity {
 
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_launch);
+        setContentView(R.layout.activity_main);
         Button createAccount = findViewById(R.id.createAccount);
         createAccount.setVisibility(View.VISIBLE);
         createAccount.setOnClickListener(unchecked -> createAccount());
