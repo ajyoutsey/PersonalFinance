@@ -24,9 +24,8 @@
         android:id="@+id/accountBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:editable="true"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="numberDecimal" />
 
     <Switch
         android:id="@+id/accountSign"
