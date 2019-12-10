@@ -25,7 +25,7 @@ public class StockPage extends AppCompatActivity {
         double bought = MainActivity.getStockList().get(stockIndex).getPrice();
         System.out.println(bought);
         double current = MainActivity.getCurrentPrice();
-        double total = current * quantity;
+        double total = ((double) ((int) ((quantity * current * 100))) / 100);
         pageName.setText(name);
         String q = "" + quantity;
         pageQuantity.setText(q);
