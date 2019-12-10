@@ -63,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
             int quantity = s.getQuantity();
             loadStockPrice(s.getName());
             double currentPrice = getCurrentPrice();
+            s.setCurrentPrice(currentPrice);
             double stockCurrentTotal = quantity * currentPrice;
+            s.setBalance(stockCurrentTotal);
             System.out.println("Stock current total " + stockCurrentTotal);
             String total = Double.toString(stockCurrentTotal);
             balance += stockCurrentTotal;
@@ -137,8 +139,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         JsonParser parser = new JsonParser();
                         JsonObject root = parser.parse(response).getAsJsonObject();
-                        JsonObject price = root.get("price").getAsJsonObject();
-                        currentPrice = price.getAsDouble();
+                        currentPrice = root.get("price").getAsDouble();
                         setCurrentPrice(currentPrice);
 
                     }
