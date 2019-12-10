@@ -6,7 +6,17 @@
     <TextView
         android:id="@+id/stockName"
         android:layout_width="match_parent"
-        android:layout_height="34dp" />
+        android:layout_height="34dp"
+        android:background="#C5C5C5"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/filler5"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#000000" />
 
     <TextView
         android:id="@+id/stockQuantityTitle"
@@ -17,7 +27,8 @@
     <TextView
         android:id="@+id/stockQuantity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="right" />
 
     <TextView
         android:id="@+id/boughtAtTitle"
@@ -30,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:gravity="right"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -41,7 +53,8 @@
     <TextView
         android:id="@+id/currentPrice"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="right" />
 
     <TextView
         android:id="@+id/currentTotalTitle"
@@ -52,7 +65,8 @@
     <TextView
         android:id="@+id/currentTotal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="right" />
 
     <Button
         android:id="@+id/stockReturnHome"
