@@ -60,11 +60,10 @@ public class MainActivity extends AppCompatActivity {
             TextView stockName = stockChunk.findViewById(R.id.chunkStockName);
             TextView stockTotal = stockChunk.findViewById(R.id.chunkStockTotal);
             stockName.setText(s.getName());
-            int quantity = s.getQuantity();
             loadStockPrice(s.getName());
-            double currentPrice = getCurrentPrice();
-            s.setCurrentPrice(currentPrice);
-            double stockCurrentTotal = quantity * currentPrice;
+            double current = getCurrentPrice();
+            s.setCurrentPrice(current);
+            double stockCurrentTotal = s.getQuantity() * s.getCurrentPrice();
             s.setBalance(stockCurrentTotal);
             System.out.println("Stock current total " + stockCurrentTotal);
             String total = Double.toString(stockCurrentTotal);
