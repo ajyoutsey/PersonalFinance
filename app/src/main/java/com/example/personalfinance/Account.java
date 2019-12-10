@@ -27,10 +27,19 @@ public class Account {
             if (eventList.get(i).getAmount() == a && eventList.get(i).getEventType().equals(e)
                 && eventList.get(i).getDate().equals(d)) {
                 eventList.remove(i);
-                return;
+                break;
             }
         }
         accountTotal = accountTotal - a;
+    }
+    public void removeEvent(Event e) {
+        for (int i = 0; i < eventList.size(); i++) {
+            if (eventList.get(i) == e) {
+                eventList.remove(i);
+                break;
+            }
+        }
+        accountTotal = accountTotal - e.getAmount();
     }
     public void setAccountName(String aName) {
         accountName = aName;
