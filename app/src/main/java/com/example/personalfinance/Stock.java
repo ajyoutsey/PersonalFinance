@@ -8,7 +8,6 @@ import org.patriques.output.timeseries.Daily;
 import org.patriques.output.timeseries.data.StockData;
 
 import java.util.List;
-import java.util.Map;
 
 public class Stock {
 
@@ -30,9 +29,9 @@ public class Stock {
         TimeSeries stockTimeSeries = new TimeSeries(apiConnector);
         try {
             Daily response = stockTimeSeries.daily(ticker, OutputSize.COMPACT);
-            Map<String, String> metaData = response.getMetaData();
             List<StockData> stockData = response.getStockData();
             currentPrice = stockData.get(0).getClose();
+            System.out.println("Current price " + currentPrice);
         } catch (AlphaVantageException e) {
             System.out.println("something went wrong");
         }
