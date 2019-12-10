@@ -45,7 +45,9 @@ public class AccountPage extends AppCompatActivity {
             Button removeEvent = eventChunk.findViewById(R.id.removeEvent);
             removeEvent.setOnClickListener(unchecked -> {
                 acc.removeEvent(e);
-                setEventList();
+                Intent intent = new Intent(this, AccountPage.class);
+                startActivity(intent);
+                finish();
             });
             TextView date = eventChunk.findViewById(R.id.date);
             TextView description = eventChunk.findViewById(R.id.eventName);
