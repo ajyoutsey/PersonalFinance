@@ -1,20 +1,31 @@
 package com.example.personalfinance;
 
-import org.patriques.AlphaVantageConnector;
-import org.patriques.TimeSeries;
-import org.patriques.input.timeseries.OutputSize;
-import org.patriques.output.AlphaVantageException;
-import org.patriques.output.timeseries.Daily;
-import org.patriques.output.timeseries.data.StockData;
 
-import java.util.List;
+import android.app.Application;
+import android.content.Context;
+import android.os.Bundle;
 
-public class Stock {
+import androidx.appcompat.app.AppCompatActivity;
 
-    private double currentPrice;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import org.json.JSONObject;
+
+public class Stock extends AppCompatActivity {
+
     private String name;
     private int quantity;
     private double price;
+    private Stock instance;
+    private double currentPrice;
 
     public Stock(String n, int q, double p) {
         name = n;
@@ -22,25 +33,44 @@ public class Stock {
         price = p;
     }
 
-    public void setStockPrice(String ticker) {
-        String apiKey = "8EL4Y65ZPOUHY1ME";
-        int timeout = 3000;
-        AlphaVantageConnector apiConnector = new AlphaVantageConnector(apiKey, timeout);
-        TimeSeries stockTimeSeries = new TimeSeries(apiConnector);
-        try {
-            Daily response = stockTimeSeries.daily(ticker, OutputSize.COMPACT);
-            List<StockData> stockData = response.getStockData();
-            currentPrice = stockData.get(0).getClose();
-            System.out.println("Current price " + currentPrice);
-        } catch (AlphaVantageException e) {
-            System.out.println("something went wrong");
-        }
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
     }
 
+    public void loadStockPrice(String ticker) {
+        String url = "https://financialmodelingprep.com/api/v3/stock/real-time-price/" + ticker;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        JsonParser parser = new JsonParser();
+                        JsonObject root = parser.parse(response).getAsJsonObject();
+                        JsonObject price = root.get("price").getAsJsonObject();
+                        currentPrice = price.getAsDouble();
+                        setCurrentPrice(currentPrice);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println(error.getMessage());
+                error.printStackTrace();
+            }
+        });
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+    }
+
+    public void setCurrentPrice(double price) {
+        currentPrice = price;
+    }
     public double getCurrentPrice() {
         return currentPrice;
     }
     public String getName() { return name; }
     public int getQuantity() { return quantity; }
     public double getPrice() { return price; }
+    public Context getApplicationContext() {
+        return instance;
+    }
 }

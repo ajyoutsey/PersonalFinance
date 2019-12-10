@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             TextView stockTotal = stockChunk.findViewById(R.id.chunkStockTotal);
             stockName.setText(s.getName());
             int quantity = s.getQuantity();
-            s.setStockPrice(s.getName());
+            s.loadStockPrice(s.getName());
             double currentPrice = s.getCurrentPrice();
             double stockCurrentTotal = quantity * currentPrice;
             String total = Double.toString(stockCurrentTotal);

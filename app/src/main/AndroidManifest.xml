@@ -21,6 +21,10 @@
         <activity android:name=".CreateEvent" ></activity>
         <activity android:name=".StockPage" ></activity>
         <activity android:name=".CreateStock" ></activity>
+        <activity android:name=".Stock" ></activity>
+
     </application>
+
+
 
 </manifest>
