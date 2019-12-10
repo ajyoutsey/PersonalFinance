@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
             TextView stockTotal = stockChunk.findViewById(R.id.chunkStockTotal);
             stockName.setText(s.getName());
             int quantity = s.getQuantity();
-            double currentPrice = 50; //PLACEHOLDER
+            s.setStockPrice(s.getName());
+            double currentPrice = s.getCurrentPrice();
             double stockCurrentTotal = quantity * currentPrice;
             String total = Double.toString(stockCurrentTotal);
             balance += stockCurrentTotal;
@@ -123,4 +124,7 @@ public class MainActivity extends AppCompatActivity {
     public static int getCurrentAccount() {
         return currentAccount;
     }
+    public static int getCurrentStock() { return currentStock; }
+    public static ArrayList<Stock> getStockList() { return stockList; }
+    public static void setStockList(ArrayList<Stock> s) { stockList = s; }
 }

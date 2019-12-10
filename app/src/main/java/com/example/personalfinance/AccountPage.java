@@ -22,7 +22,7 @@ public class AccountPage extends AppCompatActivity {
         String name = MainActivity.getAccountList().get(accountIndex).getAccountName();
         double bal = MainActivity.getAccountList().get(accountIndex).getAccountTotal();
         pageName.setText(name);
-        String balance = " " + bal;
+        String balance = "" + bal;
         pageBalance.setText(balance);
         Button createEvent = findViewById(R.id.createEvent);
         Button deleteAccount = findViewById(R.id.deleteAccount);
