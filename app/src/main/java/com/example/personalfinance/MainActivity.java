@@ -15,9 +15,13 @@ public class MainActivity extends AppCompatActivity {
 
     private static ArrayList<Account> accountList = new ArrayList<Account>();
 
+    private static ArrayList<Stock> stockList = new ArrayList<Stock>();
+
     private double balance;
 
     private static int currentAccount;
+
+    private static int currentStock;
 
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,22 @@ public class MainActivity extends AppCompatActivity {
             accList.addView(accountChunk);
             Button enter = accountChunk.findViewById(R.id.enterAccount);
             enter.setOnClickListener(unchecked -> setIndex(a.getAccountName(), a.getAccountTotal()));
+        }
+        LinearLayout stocks = findViewById(R.id.stockList);
+        for (Stock s : stockList) {
+            View stockChunk = getLayoutInflater().inflate(R.layout.chunk_new_stock, null, false);
+            TextView stockName = stockChunk.findViewById(R.id.chunkStockName);
+            TextView stockTotal = stockChunk.findViewById(R.id.chunkStockTotal);
+            stockName.setText(s.getName());
+            int quantity = s.getQuantity();
+            double currentPrice = 50; //PLACEHOLDER
+            double stockCurrentTotal = quantity * currentPrice;
+            String total = Double.toString(stockCurrentTotal);
+            balance += stockCurrentTotal;
+            stockTotal.setText(total);
+            stocks.addView(stockChunk);
+            Button enter = stockChunk.findViewById(R.id.chunkEnterStock);
+            enter.setOnClickListener(unchecked -> setStockIndex(s.getName(), stockCurrentTotal));
         }
         TextView totalBalance = findViewById(R.id.totalBalance);
         String bal = Double.toString(balance);
@@ -61,18 +81,35 @@ public class MainActivity extends AppCompatActivity {
         accountList.add(a);
     }
 
-    public void setIndex(String name, double balance) {
+    public static void addStock(Stock s) { stockList.add(s); }
+
+    public void setIndex(String name, double bal) {
         for (int i = 0; i < accountList.size(); i++) {
             if (accountList.get(i).getAccountName().equals(name)
-                    && accountList.get(i).getAccountTotal() == balance) {
+                    && accountList.get(i).getAccountTotal() == bal) {
                 currentAccount = i;
             }
         }
         enterAccount();
     }
 
+    public void setStockIndex(String name, double total) {
+        for (int i = 0; i < stockList.size(); i++) {
+            if (stockList.get(i).getName().equals(name)) {
+                currentStock = i;
+            }
+        }
+        enterStock();
+    }
+
     public void enterAccount() {
         Intent intent = new Intent(this, AccountPage.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void enterStock() {
+        Intent intent = new Intent(this, StockPage.class);
         startActivity(intent);
         finish();
     }

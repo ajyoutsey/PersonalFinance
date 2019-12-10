@@ -20,7 +20,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="497dp">
+        android:layout_height="218dp">
 
         <LinearLayout
             android:id="@+id/accountList"
@@ -30,6 +30,17 @@
             android:orientation="vertical">
 
         </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="246dp">
+
+        <LinearLayout
+            android:id="@+id/stockList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
     </ScrollView>
 
     <Button

@@ -7,7 +7,7 @@
         android:id="@+id/createStockTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stock Name" />
+        android:text="Stock Name (Use NYSE ticker)" />
 
     <EditText
         android:id="@+id/createStockName"
@@ -39,13 +39,13 @@
         android:inputType="numberDecimal" />
 
     <Button
-        android:id="@+id/addStockTitle"
+        android:id="@+id/addStock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Stock" />
 
     <Button
-        android:id="@+id/stockCancel"
+        android:id="@+id/cancelStock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cancel" />
