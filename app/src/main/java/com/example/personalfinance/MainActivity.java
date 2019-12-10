@@ -61,8 +61,10 @@ public class MainActivity extends AppCompatActivity {
             TextView stockTotal = stockChunk.findViewById(R.id.chunkStockTotal);
             stockName.setText(s.getName());
             int quantity = s.getQuantity();
+            System.out.println("Stock quantity " + quantity);
             loadStockPrice(s.getName());
             double currentPrice = getCurrentPrice();
+            System.out.println("Stock current price " + currentPrice);
             double stockCurrentTotal = quantity * currentPrice;
             System.out.println("Stock current total " + stockCurrentTotal);
             String total = Double.toString(stockCurrentTotal);
@@ -137,10 +139,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         JsonParser parser = new JsonParser();
                         JsonObject root = parser.parse(response).getAsJsonObject();
-                        JsonObject price = root.get("price").getAsJsonObject();
-                        currentPrice = price.getAsDouble();
+                        currentPrice = root.get("price").getAsDouble();
                         setCurrentPrice(currentPrice);
-
                     }
                 }, new Response.ErrorListener() {
             @Override
