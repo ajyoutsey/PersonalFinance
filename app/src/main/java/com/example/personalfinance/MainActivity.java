@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             s.setBalance(stockCurrentTotal);
             System.out.println("Stock current total " + stockCurrentTotal);
             String total = Double.toString(stockCurrentTotal);
-            balance += stockCurrentTotal;
+            balance += s.getBalance();
             stockTotal.setText(total);
             stocks.addView(stockChunk);
             Button enter = stockChunk.findViewById(R.id.chunkEnterStock);

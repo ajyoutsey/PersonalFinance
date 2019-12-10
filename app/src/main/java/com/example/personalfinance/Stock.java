@@ -35,4 +35,6 @@ public class Stock {
     public double getPrice() { return price; }
     public void setCurrentPrice(double p) { currentPrice = p;}
     public void setBalance(double p) { balance = p; };
+    public double getCurrentPrice() { return currentPrice;}
+    public double getBalance() { return balance;}
 }
