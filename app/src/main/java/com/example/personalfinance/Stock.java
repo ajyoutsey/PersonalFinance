@@ -1,30 +1,26 @@
 package com.example.personalfinance;
 
-
-import android.app.Application;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import org.json.JSONObject;
 
 public class Stock extends AppCompatActivity {
 
     private String name;
     private int quantity;
     private double price;
-    private Stock instance;
     private double currentPrice;
 
     public Stock(String n, int q, double p) {
@@ -33,9 +29,9 @@ public class Stock extends AppCompatActivity {
         price = p;
     }
 
-    protected void onCreate(final Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     public void loadStockPrice(String ticker) {
@@ -70,7 +66,4 @@ public class Stock extends AppCompatActivity {
     public String getName() { return name; }
     public int getQuantity() { return quantity; }
     public double getPrice() { return price; }
-    public Context getApplicationContext() {
-        return instance;
-    }
 }
