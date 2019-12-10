@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             loadStockPrice(s.getName());
             double currentPrice = getCurrentPrice();
             double stockCurrentTotal = quantity * currentPrice;
+            System.out.println("Stock current total " + stockCurrentTotal);
             String total = Double.toString(stockCurrentTotal);
             balance += stockCurrentTotal;
             stockTotal.setText(total);

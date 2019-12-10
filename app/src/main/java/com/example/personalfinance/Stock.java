@@ -16,7 +16,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class Stock extends AppCompatActivity {
+public class Stock {
 
     private String name;
     private int quantity;
@@ -26,11 +26,6 @@ public class Stock extends AppCompatActivity {
         name = n;
         quantity = q;
         price = p;
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     public String getName() { return name; }
