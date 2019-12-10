@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             stockTotal.setText(total);
             stocks.addView(stockChunk);
             Button enter = stockChunk.findViewById(R.id.chunkEnterStock);
-            enter.setOnClickListener(unchecked -> setStockIndex(s.getName(), stockCurrentTotal));
+            enter.setOnClickListener(unchecked -> setStockIndex(s.getName()));
         }
         TextView totalBalance = findViewById(R.id.totalBalance);
         String bal = Double.toString(balance);
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         enterAccount();
     }
 
-    public void setStockIndex(String name, double total) {
+    public void setStockIndex(String name) {
         for (int i = 0; i < stockList.size(); i++) {
             if (stockList.get(i).getName().equals(name)) {
                 currentStock = i;
