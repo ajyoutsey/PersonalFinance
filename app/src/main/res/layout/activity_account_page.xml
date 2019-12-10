@@ -6,20 +6,36 @@
     <TextView
         android:id="@+id/pageName"
         android:layout_width="match_parent"
-        android:layout_height="34dp" />
+        android:layout_height="34dp"
+        android:background="#C5C5C5"
+        android:textColor="#000000"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/currentBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Current Balance" />
+        android:background="#C5C5C5"
+        android:text="Current Balance"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/pageBalance"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        android:background="#C5C5C5"
         android:ems="10"
-        android:inputType="number" />
+        android:gravity="right"
+        android:inputType="number"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/filler"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#000000" />
 
     <ScrollView
         android:layout_width="match_parent"

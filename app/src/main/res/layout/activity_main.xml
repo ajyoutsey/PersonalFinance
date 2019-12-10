@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,16 +8,31 @@
         android:id="@+id/totalBalanceTitle"
         android:layout_width="match_parent"
         android:layout_height="42dp"
-        android:text="Total Balance" />
+        android:background="#C5C5C5"
+        android:text="Total Balance"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:visibility="visible"
+        tools:text="Total Balance" />
 
     <TextView
         android:id="@+id/totalBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C5C5C5"
+        android:drawableBottom="@android:color/background_dark"
         android:ems="10"
         android:gravity="right"
         android:inputType="number"
-        android:text="0" />
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/filler2"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#000000" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,6 +47,12 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/filler3"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#000000" />
 
     <ScrollView
         android:layout_width="match_parent"
