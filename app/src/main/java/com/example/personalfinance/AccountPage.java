@@ -32,9 +32,21 @@ public class AccountPage extends AppCompatActivity {
         returnHome.setOnClickListener(unchecked -> goHome());
         Account acc = MainActivity.getAccountList().get(accountIndex);
         ArrayList<Event> temp = acc.getEventList();
+        setEventList();
+    }
+
+    public void setEventList() {
+        int accountIndex = MainActivity.getCurrentAccount();
+        Account acc = MainActivity.getAccountList().get(accountIndex);
+        ArrayList<Event> temp = acc.getEventList();
         LinearLayout eventPane = findViewById(R.id.eventList);
         for (Event e : temp) {
             View eventChunk = getLayoutInflater().inflate(R.layout.chunk_new_event, null, false);
+            Button removeEvent = eventChunk.findViewById(R.id.removeEvent);
+            removeEvent.setOnClickListener(unchecked -> {
+                acc.removeEvent(e);
+                setEventList();
+            });
             TextView date = eventChunk.findViewById(R.id.date);
             TextView description = eventChunk.findViewById(R.id.eventName);
             TextView amount = eventChunk.findViewById(R.id.eventAmount);
