@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
             loadStockPrice(s.getName());
             double current = getCurrentPrice();
             s.setCurrentPrice(current);
-            double stockCurrentTotal = s.getQuantity() * s.getCurrentPrice();
+            double stockCurrentTotal = ((double) ((int) ((s.getQuantity() * s.getCurrentPrice()) * 100))) / 100;
             s.setBalance(stockCurrentTotal);
             System.out.println("Stock current total " + stockCurrentTotal);
-            String total = Double.toString(stockCurrentTotal);
+            String total = Double.toString(s.getBalance());
             balance += s.getBalance();
             stockTotal.setText(total);
             stocks.addView(stockChunk);
