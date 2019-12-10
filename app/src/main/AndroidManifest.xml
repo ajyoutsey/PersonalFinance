@@ -19,6 +19,7 @@
         <activity android:name=".CreateAccount" ></activity>
         <activity android:name=".AccountPage" ></activity>
         <activity android:name=".CreateEvent" ></activity>
+        <activity android:name=".StockPage" ></activity>
     </application>
 
 </manifest>

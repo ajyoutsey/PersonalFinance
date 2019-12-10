@@ -41,10 +41,18 @@ public class MainActivity extends AppCompatActivity {
         TextView totalBalance = findViewById(R.id.totalBalance);
         String bal = Double.toString(balance);
         totalBalance.setText(bal);
+        Button createStock = findViewById(R.id.createStockAccount);
+        createStock.setOnClickListener(unchecked -> createStock());
     }
 
     public void createAccount() {
         Intent intent = new Intent(this, CreateAccount.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void createStock() {
+        Intent intent = new Intent(this, CreateStock.class);
         startActivity(intent);
         finish();
     }

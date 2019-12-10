@@ -20,7 +20,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="456dp">
+        android:layout_height="497dp">
 
         <LinearLayout
             android:id="@+id/accountList"
@@ -36,7 +36,13 @@
         android:id="@+id/createAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
+        android:gravity="center_horizontal|center_vertical"
         android:text="Create New Account" />
+
+    <Button
+        android:id="@+id/createStockAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create stock account" />
 
 </LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/stockName"
+        android:layout_width="match_parent"
+        android:layout_height="34dp" />
+
+    <TextView
+        android:id="@+id/stockQuantityTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stock Quantity" />
+
+    <TextView
+        android:id="@+id/stockQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/boughtAtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bought At" />
+
+    <TextView
+        android:id="@+id/boughtAt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/currentPriceTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Price" />
+
+    <TextView
+        android:id="@+id/currentPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/currentTotalTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Total" />
+
+    <TextView
+        android:id="@+id/currentTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/stockReturnHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Return Home" />
+
+    <Button
+        android:id="@+id/deleteStock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete stock" />
+</LinearLayout>
