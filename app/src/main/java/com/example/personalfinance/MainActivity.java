@@ -9,6 +9,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static int currentStock;
 
+    private static double currentPrice;
+
+
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -31,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         createAccount.setOnClickListener(unchecked -> createAccount());
         LinearLayout accList = findViewById(R.id.accountList);
         for (Account a : accountList) {
-            View accountChunk = getLayoutInflater().inflate(R.layout.chunk_new_account, null, false);
+            View accountChunk = getLayoutInflater().inflate(R.layout.chunk_new_account, accList, false);
             TextView accName = accountChunk.findViewById(R.id.accountName);
             TextView accTotal = accountChunk.findViewById(R.id.accTotal);
             accName.setText(a.getAccountName());
@@ -44,13 +56,13 @@ public class MainActivity extends AppCompatActivity {
         }
         LinearLayout stocks = findViewById(R.id.stockList);
         for (Stock s : stockList) {
-            View stockChunk = getLayoutInflater().inflate(R.layout.chunk_new_stock, null, false);
+            View stockChunk = getLayoutInflater().inflate(R.layout.chunk_new_stock, stocks, false);
             TextView stockName = stockChunk.findViewById(R.id.chunkStockName);
             TextView stockTotal = stockChunk.findViewById(R.id.chunkStockTotal);
             stockName.setText(s.getName());
             int quantity = s.getQuantity();
-            s.loadStockPrice(s.getName());
-            double currentPrice = s.getCurrentPrice();
+            loadStockPrice(s.getName());
+            double currentPrice = getCurrentPrice();
             double stockCurrentTotal = quantity * currentPrice;
             String total = Double.toString(stockCurrentTotal);
             balance += stockCurrentTotal;
@@ -110,10 +122,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void enterStock() {
+        loadStockPrice(stockList.get(currentStock).getName());
         Intent intent = new Intent(this, StockPage.class);
         startActivity(intent);
         finish();
     }
+
+    public void loadStockPrice(String ticker) {
+        String url = "https://financialmodelingprep.com/api/v3/stock/real-time-price/" + ticker;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        JsonParser parser = new JsonParser();
+                        JsonObject root = parser.parse(response).getAsJsonObject();
+                        JsonObject price = root.get("price").getAsJsonObject();
+                        currentPrice = price.getAsDouble();
+                        setCurrentPrice(currentPrice);
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println(error.getMessage());
+                error.printStackTrace();
+            }
+        });
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+    }
+
 
     public static void setAccountList(ArrayList<Account> a) {
         accountList = a;
@@ -127,4 +165,11 @@ public class MainActivity extends AppCompatActivity {
     public static int getCurrentStock() { return currentStock; }
     public static ArrayList<Stock> getStockList() { return stockList; }
     public static void setStockList(ArrayList<Stock> s) { stockList = s; }
+
+    public static void setCurrentPrice(double price) {
+        currentPrice = price;
+    }
+    public static double getCurrentPrice() {
+        return currentPrice;
+    }
 }
