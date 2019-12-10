@@ -24,14 +24,12 @@ public class StockPage extends AppCompatActivity {
         int quantity = MainActivity.getStockList().get(stockIndex).getQuantity();
         double bought = MainActivity.getStockList().get(stockIndex).getPrice();
         System.out.println(bought);
-        Stock s = MainActivity.getStockList().get(stockIndex);
-        double current = MainActivity.getStockList().get(stockIndex).getCurrentPrice();
+        double current = MainActivity.getCurrentPrice();
         double total = current * quantity;
         pageName.setText(name);
         String q = "" + quantity;
         pageQuantity.setText(q);
         String b = Double.toString(bought);
-        System.out.println("b is " + b);
         boughtAt.setText(b);
         String c = "" + current;
         currentPrice.setText(c);

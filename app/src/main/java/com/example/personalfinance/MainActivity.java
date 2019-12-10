@@ -62,12 +62,9 @@ public class MainActivity extends AppCompatActivity {
             stockName.setText(s.getName());
             loadStockPrice(s.getName());
             double current = getCurrentPrice();
-            s.setCurrentPrice(current);
-            double stockCurrentTotal = s.getQuantity() * s.getCurrentPrice();
-            s.setBalance(stockCurrentTotal);
-            System.out.println("Stock current total " + stockCurrentTotal);
+            double stockCurrentTotal = s.getQuantity() * current;
             String total = Double.toString(stockCurrentTotal);
-            balance += s.getBalance();
+            balance += stockCurrentTotal;
             stockTotal.setText(total);
             stocks.addView(stockChunk);
             Button enter = stockChunk.findViewById(R.id.chunkEnterStock);
@@ -136,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        System.out.println(response);
                         JsonParser parser = new JsonParser();
                         JsonObject root = parser.parse(response).getAsJsonObject();
                         currentPrice = root.get("price").getAsDouble();
@@ -150,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
         });
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(stringRequest);
-        System.out.println("Current price: " + currentPrice);
     }
 
 
