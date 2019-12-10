@@ -33,13 +33,13 @@ public class Account {
         accountTotal = accountTotal - a;
     }
     public void removeEvent(Event e) {
+        accountTotal = accountTotal - e.getAmount();
         for (int i = 0; i < eventList.size(); i++) {
             if (eventList.get(i) == e) {
                 eventList.remove(i);
                 break;
             }
         }
-        accountTotal = accountTotal - e.getAmount();
     }
     public void setAccountName(String aName) {
         accountName = aName;
