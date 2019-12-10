@@ -137,11 +137,10 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        System.out.println(response);
                         JsonParser parser = new JsonParser();
                         JsonObject root = parser.parse(response).getAsJsonObject();
                         currentPrice = root.get("price").getAsDouble();
-                        setCurrentPrice(currentPrice);
-
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -152,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
         });
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(stringRequest);
+        System.out.println("Current price: " + currentPrice);
     }
 
 
